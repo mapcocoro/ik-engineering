@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>株式会社IKエンジニアリング｜案③ ダイナミック・テック（サンプル）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a0f; --bg2:#0b0f16;
+  --ink:#eaf2f6; --sub:#92a3b3;
+  --cyan:#00e6c3; --blue:#1f9dff;
+  --glass:rgba(255,255,255,.045); --glassb:rgba(255,255,255,.12);
+  --maxw:1220px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.raj{font-family:"Rajdhani",sans-serif;letter-spacing:.04em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.flag{position:fixed;top:0;left:0;z-index:300;background:linear-gradient(90deg,var(--cyan),var(--blue));color:#04121a;font-weight:700;font-size:12px;padding:4px 12px}
+.grad-txt{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.reveal{opacity:0;transform:translateY(54px) scale(.97);transition:opacity .8s cubic-bezier(.16,.9,.3,1),transform .9s cubic-bezier(.16,1.05,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+header{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 0;transition:.3s}
+header.scrolled{background:rgba(7,10,15,.8);backdrop-filter:blur(12px);padding:12px 0;border-bottom:1px solid var(--glassb)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:19px}
+.logo .mk{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04121a;display:grid;place-items:center;font-family:"Rajdhani";font-weight:700;font-size:17px}
+.menu{display:flex;gap:30px;font-size:14px;color:var(--sub);font-weight:500}
+.menu a:hover{color:var(--cyan)}
+.cta{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04121a;font-weight:700;padding:11px 24px;border-radius:30px;font-size:14px;transition:.25s;box-shadow:0 6px 20px rgba(0,230,195,.25)}
+.cta:hover{transform:translateY(-2px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink);transition:.3s}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-ph{position:absolute;inset:0;background:url("https://images.pexels.com/photos/3829454/pexels-photo-3829454.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover;opacity:.28}
+.hero::before{content:"";position:absolute;width:780px;height:780px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,195,.28),transparent 62%);top:-220px;right:-180px;filter:blur(20px);animation:float 9s ease-in-out infinite}
+.hero::after{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(31,157,255,.22),transparent 62%);bottom:-220px;left:-160px;filter:blur(20px);animation:float 11s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(0,40px)}}
+.hero-inner{position:relative;z-index:3;padding-top:80px}
+.hero .pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--glassb);background:var(--glass);backdrop-filter:blur(6px);border-radius:30px;padding:8px 18px;font-family:"Rajdhani";font-weight:600;letter-spacing:.12em;font-size:14px;color:var(--cyan);margin-bottom:28px;opacity:0;animation:fu .8s .2s forwards}
+.hero .pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.hero h1{font-weight:900;font-size:clamp(40px,8vw,92px);line-height:1.1;letter-spacing:.01em}
+.hero h1>span{display:block;opacity:0;transform:translateY(30px);animation:fuY .9s forwards}
+.hero h1>span:nth-child(1){animation-delay:.3s}.hero h1>span:nth-child(2){animation-delay:.45s}
+.hero p{max-width:540px;color:var(--sub);font-size:17px;margin:28px 0 40px;opacity:0;animation:fu 1s .7s forwards}
+.hero-actions{display:flex;gap:15px;flex-wrap:wrap;opacity:0;animation:fu 1s .85s forwards}
+.btn-g{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04121a;font-weight:700;padding:16px 34px;border-radius:30px;transition:.25s;box-shadow:0 8px 26px rgba(0,230,195,.28)}
+.btn-g:hover{transform:translateY(-3px)}
+.btn-ghost{border:1px solid var(--glassb);padding:16px 30px;border-radius:30px;color:var(--ink);transition:.25s}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+@keyframes fu{to{opacity:1}}@keyframes fuY{to{opacity:1;transform:none}}
+
+/* diagonal stats */
+.stats{position:relative;background:linear-gradient(120deg,var(--cyan),var(--blue));color:#04121a;transform:skewY(-2.4deg);margin:60px 0;padding:0}
+.stats .inner{transform:skewY(2.4deg)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);padding:56px 26px}
+.stats .s{text-align:center;border-right:1px solid rgba(4,18,26,.18)}
+.stats .s:last-child{border-right:none}
+.stats .num{font-family:"Rajdhani";font-weight:700;font-size:clamp(46px,8vw,78px);line-height:1}
+.stats .lbl{font-weight:700;font-size:13px;margin-top:6px}
+
+section{padding:110px 0;position:relative}
+.eyebrow{font-family:"Rajdhani";font-weight:700;letter-spacing:.18em;font-size:15px}
+.h2{font-weight:900;font-size:clamp(30px,5vw,52px);line-height:1.2;margin-top:8px}
+.lead{color:var(--sub);max-width:560px;margin-top:16px}
+
+/* glass service cards */
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+.gcard{position:relative;background:var(--glass);border:1px solid var(--glassb);border-radius:16px;padding:32px 28px;backdrop-filter:blur(8px);overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}
+.gcard::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .45s}
+.gcard:hover{transform:translateY(-10px);border-color:rgba(0,230,195,.45);box-shadow:0 22px 50px rgba(0,230,195,.12)}
+.gcard:hover::before{transform:scaleX(1)}
+.gcard .ic{width:54px;height:54px;border-radius:13px;display:grid;place-items:center;font-family:"Rajdhani";font-weight:700;font-size:20px;color:#04121a;background:linear-gradient(135deg,var(--cyan),var(--blue));margin-bottom:18px}
+.gcard h3{font-weight:700;font-size:20px;margin-bottom:8px}
+.gcard p{color:var(--sub);font-size:14px}
+
+/* about */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.about-lead{font-weight:900;font-size:clamp(22px,3.2vw,32px);line-height:1.6}
+.about-lead+p{color:var(--sub);margin-top:20px}
+.about-table{border-top:2px solid;border-image:linear-gradient(90deg,var(--cyan),var(--blue)) 1}
+.about-table>div{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--glassb)}
+.about-table dt{padding:17px 0;font-family:"Rajdhani";font-weight:700;color:var(--cyan);font-size:15px;letter-spacing:.04em}
+.about-table dd{padding:17px 0}
+
+/* recruit */
+.recruit{position:relative;overflow:hidden}
+.rec-card{position:relative;border:1px solid var(--glassb);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.rec-ph{background:url("https://images.pexels.com/photos/16827315/pexels-photo-16827315.jpeg?auto=compress&cs=tinysrgb&w=1000") center/cover;min-height:440px}
+.rec-body{background:var(--glass);backdrop-filter:blur(8px);padding:54px 46px}
+.rec-body h3{font-weight:900;font-size:clamp(24px,3.6vw,34px);line-height:1.4;margin-bottom:18px}
+.rec-body p{color:var(--sub);margin-bottom:26px}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.tag{border:1px solid var(--glassb);color:var(--cyan);font-family:"Rajdhani";font-weight:600;font-size:14px;padding:7px 15px;border-radius:30px}
+
+/* contact */
+.contact{text-align:center;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,230,195,.16),transparent 60%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(10px)}
+.contact .wrap{position:relative;z-index:2}
+.contact h2{font-weight:900;font-size:clamp(28px,5vw,50px);margin-bottom:16px}
+.contact p{color:var(--sub);margin-bottom:30px}
+.contact .tel{font-family:"Rajdhani";font-weight:700;font-size:clamp(38px,7vw,66px)}
+.contact .tel a{transition:.25s}
+
+footer{background:var(--bg2);border-top:1px solid var(--glassb);padding:44px 0;color:var(--sub);font-size:13px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+
+@media(max-width:880px){
+  .cta.head{display:none}
+  .burger{display:flex;z-index:210}
+  .menu{position:fixed;inset:0 0 0 auto;width:80%;max-width:330px;height:100vh;background:var(--bg2);border-left:1px solid var(--glassb);flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;padding:40px 36px;font-size:21px;transform:translateX(100%);transition:transform .42s cubic-bezier(.2,.8,.2,1);box-shadow:-24px 0 60px rgba(0,0,0,.6);z-index:200}
+  .menu a{padding:12px 0;color:var(--ink)}
+  header.nav-open .menu{transform:none}
+  body.nav-lock{overflow:hidden}
+  header.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.nav-open .burger span:nth-child(2){opacity:0}
+  header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .stats .wrap{grid-template-columns:1fr;gap:30px}
+  .stats .s{border-right:none}
+  .serv-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:30px}
+  .rec-card{grid-template-columns:1fr}
+  .rec-body{padding:38px 26px}
+  .about-table>div{grid-template-columns:120px 1fr}
+  section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+<div class="flag">SAMPLE ③ ／ ダイナミック・テック案</div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="logo" href="#"><span class="mk">IK</span>IKエンジニアリング</a>
+    <nav class="menu"><a href="#service">事業内容</a><a href="#about">会社概要</a><a href="#recruit">採用</a><a href="#contact">お問い合わせ</a></nav>
+    <a class="cta head" href="#contact">お問い合わせ</a>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-ph"></div>
+  <div class="wrap hero-inner">
+    <span class="pill raj">ELECTRICAL ENGINEERING / INZAI CITY</span>
+    <h1><span>電気で動かす、</span><span class="grad-txt">未来のインフラ。</span></h1>
+    <p>コンセントから交通信号、避雷針まで。最先端の技術と確かな施工で、社会の電気を次の時代へつなぎます。</p>
+    <div class="hero-actions">
+      <a class="btn-g" href="#service">事業内容を見る</a>
+      <a class="btn-ghost" href="#recruit">採用情報 →</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats"><div class="inner"><div class="wrap">
+  <div class="s"><div class="num">7</div><div class="lbl">対応する電気工事分野</div></div>
+  <div class="s"><div class="num" style="font-family:'Noto Sans JP';font-weight:900;font-size:clamp(30px,5vw,46px)">公共・民間</div><div class="lbl">両領域の工事に対応</div></div>
+  <div class="s"><div class="num">055351</div><div class="lbl">建設業許可（千葉県知事）</div></div>
+</div></div></div>
+
+<section class="serv" id="service">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow grad-txt">SERVICES</div><div class="h2">事業内容</div><p class="lead">電気にまつわる7分野で、公共・民間を問わず対応します。</p></div>
+    <div class="serv-grid">
+      <div class="gcard reveal"><div class="ic">01</div><h3>コンセント・照明設備工事</h3><p>住宅・店舗・オフィス・工場の電源コンセントや照明器具の新設・増設・交換。LED化・分電盤工事にも対応します。</p></div>
+      <div class="gcard reveal"><div class="ic">02</div><h3>引込線工事</h3><p>電力会社からの引込線の新設・張替えから、屋内外の配線工事まで一貫して対応します。</p></div>
+      <div class="gcard reveal"><div class="ic">03</div><h3>ネオン設備工事</h3><p>店舗・商業施設の看板照明やネオン・サインの設置・点検・修理を行います。</p></div>
+      <div class="gcard reveal"><div class="ic">04</div><h3>交通信号設備工事</h3><p>公共工事として、交通信号機・道路照明の設置・更新・保守に対応します。</p></div>
+      <div class="gcard reveal"><div class="ic">05</div><h3>避雷針工事</h3><p>建築物を落雷から守る避雷設備（避雷針・接地）の設計・施工・点検を行います。</p></div>
+      <div class="gcard reveal"><div class="ic">06</div><h3>電気防食工事</h3><p>水道管・橋梁などの金属構造物を腐食から守る電気防食工事に対応します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow grad-txt">COMPANY</div>
+      <p class="about-lead" style="margin-top:14px">確かな技術で、<span class="grad-txt">社会の基盤</span>を支える。</p>
+      <p>千葉県印西市を拠点に、暮らしと産業を支える電気工事を手がけています。安全と品質を第一に、一つひとつの現場へ。※サンプル文。</p>
+    </div>
+    <dl class="about-table reveal">
+      <div><dt>商号</dt><dd>株式会社IKエンジニアリング</dd></div>
+      <div><dt>代表者</dt><dd>川村 勝良</dd></div>
+      <div><dt>所在地</dt><dd>〒270-1334 千葉県印西市西の原4-5-49</dd></div>
+      <div><dt>資本金</dt><dd>500万円</dd></div>
+      <div><dt>建設業許可</dt><dd>千葉県知事許可 第055351号</dd></div>
+      <div><dt>事業内容</dt><dd>電気工事全般</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="recruit" id="recruit">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:40px"><div class="eyebrow grad-txt">RECRUIT</div><div class="h2">採用情報</div></div>
+    <div class="rec-card reveal">
+      <div class="rec-ph"></div>
+      <div class="rec-body">
+        <h3>技術で、<span class="grad-txt">未来をつくる</span>仲間へ。</h3>
+        <p>※サンプル原稿です。正式な募集要項はハローワーク求人をもとに差し替えます。未経験から始めた先輩も活躍中。資格取得もサポート。CAD操作・現場管理経験者は優遇します。</p>
+        <div class="tags"><span class="tag">電気工事スタッフ</span><span class="tag">未経験歓迎</span><span class="tag">資格取得支援</span><span class="tag">CAD歓迎</span></div>
+        <a class="btn-g" href="#contact">応募・お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="reveal">お問い合わせ</h2>
+    <p class="reveal">工事のご依頼・ご相談、採用に関するお問い合わせはこちら。</p>
+    <div class="tel reveal grad-txt">0476-77-7999</div>
+    <div class="reveal" style="margin-top:26px"><a class="btn-g" href="mailto:katsuyoshi@ik-eng.jp">メールで問い合わせる</a></div>
+    <p class="reveal" style="margin-top:14px;font-size:13px">受付 8:00-18:00 ／ 日祝休 ※サンプル</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="logo"><span class="mk">IK</span>株式会社IKエンジニアリング</div>
+    <div>© 2026 IK Engineering Co., Ltd.（サンプル）／ Photos: Pexels</div>
+  </div>
+</footer>
+
+<script>
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>40));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const sib=[...e.target.parentElement.querySelectorAll(':scope > .reveal')];const i=Math.max(0,sib.indexOf(e.target));e.target.style.transitionDelay=(i*0.08)+'s';e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const burger=document.querySelector('.burger');
+const closeNav=()=>{hd.classList.remove('nav-open');document.body.classList.remove('nav-lock');};
+burger.addEventListener('click',()=>{hd.classList.toggle('nav-open');document.body.classList.toggle('nav-lock');});
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',closeNav));
+</script>
+</body>
+</html>

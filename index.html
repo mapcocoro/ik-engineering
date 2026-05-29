@@ -7,229 +7,49 @@
 <title>株式会社IKエンジニアリング｜ホームページ デザイン案</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0c1118; --bg2:#121a25; --panel:#161f2c;
-  --line:rgba(255,255,255,.08);
-  --ink:#eaf0f7; --sub:#9fb0c3;
-  --accent:#ffd400; --accent2:#27d3ff;
-  --maxw:1180px;
-}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.en{font-family:"Oswald",sans-serif;letter-spacing:.06em}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-.sample-flag{position:fixed;top:0;left:0;z-index:200;background:var(--accent);color:#0c1118;font-weight:700;font-size:12px;padding:4px 12px;letter-spacing:.05em}
-
-/* header */
-header{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(10px);background:rgba(12,17,24,.72);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:19px;letter-spacing:.04em}
-.logo .mark{width:34px;height:34px;border:2px solid var(--accent);display:grid;place-items:center;color:var(--accent);font-family:"Oswald";font-weight:700;font-size:18px;transform:skewX(-8deg)}
-.logo .mark span{transform:skewX(8deg)}
-.menu{display:flex;gap:34px;font-size:14px;color:var(--sub);font-weight:500}
-.menu a{transition:color .2s;position:relative}
-.menu a:hover{color:var(--accent)}
-.cta-btn{background:var(--accent);color:#0c1118;font-weight:700;padding:11px 22px;font-size:14px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:transform .2s}
-.cta-btn:hover{transform:translateY(-2px)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.burger span{width:26px;height:2px;background:var(--ink)}
-
-/* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:74px;
-  background:radial-gradient(1200px 600px at 80% -10%,rgba(39,211,255,.10),transparent 60%),
-             radial-gradient(900px 500px at 0% 110%,rgba(255,212,0,.07),transparent 55%),var(--bg)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 70% 40%,#000 30%,transparent 75%);opacity:.6}
-.hero-inner{position:relative;z-index:2}
-.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--accent2);font-size:13px;letter-spacing:.18em;font-weight:600;margin-bottom:26px;opacity:0;animation:up .7s .1s forwards}
-.kicker::before{content:"";width:32px;height:1px;background:var(--accent2)}
-.hero h1{font-size:clamp(38px,7vw,80px);line-height:1.12;font-weight:900;letter-spacing:.01em;margin-bottom:28px}
-.hero h1 .y{color:var(--accent)}
-.hero h1 span{display:block;opacity:0;animation:up .8s forwards}
-.hero h1 span:nth-child(1){animation-delay:.18s}
-.hero h1 span:nth-child(2){animation-delay:.3s}
-.hero p{max-width:540px;color:var(--sub);font-size:17px;margin-bottom:40px;opacity:0;animation:up .8s .5s forwards}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:up .8s .65s forwards}
-.btn-primary{background:var(--accent);color:#0c1118;font-weight:700;padding:16px 34px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:transform .2s}
-.btn-primary:hover{transform:translateY(-3px)}
-.btn-ghost{border:1px solid var(--line);padding:16px 30px;color:var(--ink);transition:.2s}
-.btn-ghost:hover{border-color:var(--accent2);color:var(--accent2)}
-.hero-side{position:absolute;right:32px;bottom:40px;writing-mode:vertical-rl;color:var(--sub);font-size:12px;letter-spacing:.3em;opacity:.6}
-@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-/* section base */
-section{padding:110px 0;position:relative}
-.sec-head{margin-bottom:60px}
-.sec-num{font-family:"Oswald";color:var(--accent);font-size:15px;letter-spacing:.2em}
-.sec-title{font-size:clamp(28px,4.5vw,44px);font-weight:900;margin-top:8px}
-.sec-en{font-family:"Oswald";color:var(--sub);font-size:14px;letter-spacing:.25em;text-transform:uppercase;margin-top:6px;opacity:.6}
-
-/* services */
-.serv{background:linear-gradient(180deg,var(--bg),var(--bg2))}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.serv-card{background:var(--bg2);padding:38px 30px;transition:.3s;position:relative;overflow:hidden}
-.serv-card::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--accent);transition:width .35s}
-.serv-card:hover{background:var(--panel)}
-.serv-card:hover::before{width:100%}
-.serv-card .no{font-family:"Oswald";font-size:13px;color:var(--accent2);letter-spacing:.15em}
-.serv-card h3{font-size:21px;font-weight:700;margin:14px 0 12px}
-.serv-card p{color:var(--sub);font-size:14px}
-
-/* strlength / numbers */
-.stats{background:var(--bg)}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
-.stat .big{font-family:"Oswald";font-size:clamp(48px,8vw,84px);font-weight:700;color:var(--accent);line-height:1}
-.stat .lbl{color:var(--sub);margin-top:10px;font-size:14px}
-
-/* about */
-.about{background:linear-gradient(180deg,var(--bg2),var(--bg))}
-.about-table{width:100%;border-top:1px solid var(--line)}
-.about-table div{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--line)}
-.about-table dt{padding:20px 0;color:var(--accent2);font-weight:600;font-size:14px;letter-spacing:.05em}
-.about-table dd{padding:20px 0;color:var(--ink)}
-
-/* recruit */
-.recruit{background:var(--bg);position:relative;overflow:hidden}
-.recruit::after{content:"RECRUIT";position:absolute;right:-20px;bottom:-30px;font-family:"Oswald";font-weight:700;font-size:clamp(80px,18vw,220px);color:rgba(255,255,255,.025);letter-spacing:.05em;pointer-events:none}
-.recruit-box{background:linear-gradient(135deg,var(--panel),var(--bg2));border:1px solid var(--line);border-left:4px solid var(--accent);padding:54px 46px;position:relative;z-index:2}
-.recruit-box h3{font-size:clamp(24px,4vw,38px);font-weight:900;margin-bottom:18px}
-.recruit-box p{color:var(--sub);max-width:640px;margin-bottom:30px}
-.tags{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
-.tag{border:1px solid var(--line);padding:8px 16px;font-size:13px;color:var(--accent2)}
-
-/* contact */
-.contact{background:linear-gradient(180deg,var(--bg),#070a0f);text-align:center}
-.contact h2{font-size:clamp(28px,5vw,48px);font-weight:900;margin-bottom:18px}
-.contact p{color:var(--sub);margin-bottom:36px}
-.contact-tel{font-family:"Oswald";font-size:clamp(30px,6vw,52px);color:var(--accent);font-weight:600;letter-spacing:.04em}
-
-footer{background:#070a0f;border-top:1px solid var(--line);padding:46px 0;color:var(--sub);font-size:13px}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-
-@media(max-width:860px){
-  .menu,.cta-btn.head{display:none}
-  .burger{display:flex}
-  .serv-grid{grid-template-columns:1fr}
-  .stat-grid{grid-template-columns:1fr;gap:40px}
-  .about-table div{grid-template-columns:120px 1fr}
-  .recruit-box{padding:36px 24px}
-  section{padding:80px 0}
-}
+body{font-family:"Noto Sans JP",sans-serif;background:#0d1118;color:#eef2f7;line-height:1.8;-webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:1000px;margin:0 auto;padding:70px 24px 90px}
+.head{text-align:center;margin-bottom:54px}
+.head .ey{color:#1ca7e0;font-weight:700;letter-spacing:.18em;font-size:13px}
+.head h1{font-weight:900;font-size:clamp(26px,4.5vw,40px);margin-top:10px}
+.head p{color:#9fb0c3;margin-top:14px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{display:block;background:#161f2c;border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;transition:transform .25s,border-color .25s;color:inherit}
+.card:hover{transform:translateY(-6px);border-color:#1ca7e0}
+.card .ph{height:150px;background-size:cover;background-position:center}
+.card .b{padding:22px 20px}
+.card .n{color:#1ca7e0;font-weight:700;font-size:13px;letter-spacing:.08em}
+.card h2{font-size:19px;font-weight:900;margin:6px 0 6px}
+.card p{color:#9fb0c3;font-size:13px}
+.note{text-align:center;color:#7f8ea0;font-size:12.5px;margin-top:40px;line-height:1.9}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#"><span class="mark"><span>IK</span></span>IKエンジニアリング</a>
-    <nav class="menu">
-      <a href="#service">事業内容</a>
-      <a href="#about">会社概要</a>
-      <a href="#recruit">採用情報</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
-    <a class="cta-btn head" href="#contact">お問い合わせ</a>
-    <div class="burger"><span></span><span></span><span></span></div>
+<div class="wrap">
+  <div class="head">
+    <div class="ey">IK ENGINEERING — WEBSITE DESIGN</div>
+    <h1>株式会社IKエンジニアリング<br>ホームページ デザイン案</h1>
+    <p>3つの方向性をご用意しました。気になる案をタップしてご覧ください。</p>
   </div>
-</header>
-
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="wrap hero-inner">
-    <div class="kicker">ELECTRICAL ENGINEERING ／ 印西市</div>
-    <h1><span>確かな技術で、</span><span>街の<span class="y">電気</span>を支える。</span></h1>
-    <p>コンセントから交通信号、避雷針まで。公共・民間を問わず、暮らしと産業の安全を足元から支える電気工事のプロフェッショナル集団です。</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#service">事業内容を見る</a>
-      <a class="btn-ghost" href="#recruit">採用情報 →</a>
-    </div>
+  <div class="grid">
+    <a class="card" href="./1/">
+      <div class="ph" style="background-image:url('https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+      <div class="b"><div class="n">案① 現場ドキュメンタリー</div><h2>力強い現場の写真</h2><p>職人と現場の迫力を前面に。採用にも強い、人間味のある方向。</p></div>
+    </a>
+    <a class="card" href="./2/">
+      <div class="ph" style="background-image:url('https://images.pexels.com/photos/7574218/pexels-photo-7574218.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+      <div class="b"><div class="n">案② テック・ミニマル</div><h2>洗練された白基調</h2><p>余白を活かした精密で高級感のある、信頼重視の方向。</p></div>
+    </a>
+    <a class="card" href="./3/">
+      <div class="ph" style="background-image:url('https://images.pexels.com/photos/3829454/pexels-photo-3829454.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+      <div class="b"><div class="n">案③ ダイナミック・テック</div><h2>黒×シアンのモダン</h2><p>動きのあるカードと光の演出。先進的でエネルギッシュな方向。</p></div>
+    </a>
   </div>
-  <div class="hero-side">SCROLL ↓</div>
-</section>
-
-<section class="serv" id="service">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-num">01</div>
-      <div class="sec-title">事業内容</div>
-      <div class="sec-en">Our Services</div>
-    </div>
-    <div class="serv-grid">
-      <div class="serv-card"><div class="no">S-01</div><h3>コンセント・照明工事</h3><p>住宅から店舗・オフィスまで。安全で使いやすい電源・照明環境を設計・施工します。</p></div>
-      <div class="serv-card"><div class="no">S-02</div><h3>引込線工事</h3><p>電力会社からの引込から屋内配線まで、確かな技術で確実に施工します。</p></div>
-      <div class="serv-card"><div class="no">S-03</div><h3>ネオン設備工事</h3><p>看板・サイン照明の設置・メンテナンス。街の表情をつくる光を手がけます。</p></div>
-      <div class="serv-card"><div class="no">S-04</div><h3>交通信号設備工事</h3><p>公共インフラを支える信号設備工事。高い安全基準で街の交通を守ります。</p></div>
-      <div class="serv-card"><div class="no">S-05</div><h3>避雷針工事</h3><p>落雷から建物と人を守る避雷設備。設計から施工・点検まで対応します。</p></div>
-      <div class="serv-card"><div class="no">S-06</div><h3>電気防食工事</h3><p>金属構造物の腐食を防ぐ電気防食。インフラの長寿命化に貢献します。</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="stats">
-  <div class="wrap stat-grid">
-    <div class="stat"><div class="big">15<span style="font-size:.4em">+</span></div><div class="lbl">年の施工実績 ※ダミー</div></div>
-    <div class="stat"><div class="big">500<span style="font-size:.4em">+</span></div><div class="lbl">対応現場数 ※ダミー</div></div>
-    <div class="stat"><div class="big">24<span style="font-size:.4em">h</span></div><div class="lbl">緊急対応体制 ※ダミー</div></div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-num">02</div>
-      <div class="sec-title">会社概要</div>
-      <div class="sec-en">Company</div>
-    </div>
-    <dl class="about-table">
-      <div><dt>商号</dt><dd>株式会社IKエンジニアリング</dd></div>
-      <div><dt>代表者</dt><dd>川村 勝良</dd></div>
-      <div><dt>所在地</dt><dd>〒270-1334 千葉県印西市西の原4-5-49</dd></div>
-      <div><dt>資本金</dt><dd>500万円</dd></div>
-      <div><dt>建設業許可</dt><dd>千葉県知事許可 第055351号</dd></div>
-      <div><dt>事業内容</dt><dd>電気工事全般（コンセント・照明・ネオン・引込線・交通信号・避雷針・電気防食）</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="recruit" id="recruit">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-num">03</div>
-      <div class="sec-title">採用情報</div>
-      <div class="sec-en">Recruit</div>
-    </div>
-    <div class="recruit-box">
-      <h3>電気の仕事で、<br>キャリアを積みませんか。</h3>
-      <p>※以下はダミー原稿です。正式な募集要項はハローワーク求人をもとに差し替えます。公共・民間の幅広い現場で、未経験から有資格者まで活躍できる環境です。CAD操作ができる方、現場管理経験のある方は優遇します。</p>
-      <div class="tags">
-        <span class="tag">電気工事スタッフ</span>
-        <span class="tag">未経験歓迎</span>
-        <span class="tag">有資格者優遇</span>
-        <span class="tag">CAD操作歓迎</span>
-        <span class="tag">印西牧の原</span>
-      </div>
-      <a class="btn-primary" href="#contact">応募・お問い合わせ</a>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <h2>お気軽にご相談ください</h2>
-    <p>電気工事のご依頼・採用に関するお問い合わせはこちらから。</p>
-    <div class="contact-tel">0476-77-7999</div>
-    <p style="margin-top:10px;font-size:13px">受付時間 8:00-18:00 ／ 日祝休 ※ダミー</p>
-    <div style="margin-top:30px"><a class="btn-primary" href="mailto:katsuyoshi@ik-eng.jp">メールで問い合わせる</a></div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot">
-    <div class="logo" style="font-size:16px"><span class="mark"><span>IK</span></span>株式会社IKエンジニアリング</div>
-    <div>© 2026 IK Engineering Co., Ltd.（サンプル）</div>
-  </div>
-</footer>
+  <p class="note">※ 写真・採用文・数値の一部はサンプルです。ご契約後、御社の実際の内容に差し替えます。<br>株式会社IKエンジニアリング 御中 ／ ココロＡＩ合同会社</p>
+</div>
 </body>
 </html>
