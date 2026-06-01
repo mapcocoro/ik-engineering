@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let t0 = null;
       const step = (t) => {
         if (!t0) t0 = t;
-        const p = Math.min((t - t0) / 1100, 1);
+        const p = Math.min((t - t0) / 600, 1);
         numNode.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * to);
         if (p < 1) requestAnimationFrame(step); else numNode.textContent = to;
       };
