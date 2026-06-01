@@ -113,7 +113,7 @@ section{padding:120px 0}
 
 /* ── about page specific ── */
 .greeting{padding:80px 0}
-.greeting-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+.greeting-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
 .greeting-img{aspect-ratio:4/5;background:#dde2dd;border-radius:6px;display:grid;place-items:center;color:var(--sub);font-size:14px}
 .greeting-text h3{font-size:28px;font-weight:700;margin-bottom:20px;line-height:1.5}
 .greeting-text p{color:var(--sub);line-height:2}
@@ -138,7 +138,7 @@ section{padding:120px 0}
 .rec-full-table{background:var(--paper);border-radius:8px;border:1px solid var(--line);overflow:hidden}
 .rec-full-table .row{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid var(--line)}
 .rec-full-table .row:last-child{border-bottom:none}
-.rec-full-table .row dt{padding:20px 24px;font-weight:700;font-size:14px;background:rgba(20,82,255,.03)}
+.rec-full-table .row dt{padding:20px 24px;font-weight:700;font-size:14px;background:rgba(16,33,139,.035)}
 .rec-full-table .row dd{padding:20px 24px;color:var(--sub);font-size:14.5px;line-height:1.8}
 
 .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
@@ -257,4 +257,147 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
 
   .foot{flex-direction:column;text-align:center;gap:16px}
   .foot-links{gap:16px;font-size:12px;flex-wrap:wrap;justify-content:center}
+}
+
+/* ============================================================
+   下層ページ刷新 デザインシステム（2026-06-01）
+   ※トップ(index.html)は新規クラスを使わないため非破壊
+   ============================================================ */
+
+/* ── SVGラインアイコン共通 ── */
+.ic{width:24px;height:24px;flex-shrink:0;display:inline-block;vertical-align:middle}
+.ic-sm{width:20px;height:20px}
+.ic-lg{width:28px;height:28px}
+
+/* ── page-hero（下層共通ヘッダー） ── */
+.page-hero{padding:148px 0 0;position:relative;overflow:hidden}
+.page-hero .wrap{position:relative}
+.page-hero .idx{position:absolute;right:-6px;top:8px;font-family:"Manrope";font-weight:800;font-size:clamp(90px,17vw,200px);line-height:.8;letter-spacing:-.04em;color:var(--line);user-select:none;pointer-events:none;z-index:0}
+.page-hero .crumb{font-family:"Manrope";font-size:12px;letter-spacing:.12em;color:var(--sub);margin-bottom:40px;position:relative;z-index:1}
+.page-hero .crumb a{transition:.2s}
+.page-hero .crumb a:hover{color:var(--accent)}
+.page-hero .ph-eyebrow{font-family:"Manrope";font-size:13px;letter-spacing:.24em;color:var(--accent);font-weight:600;position:relative;z-index:1}
+.page-hero h1{font-weight:300;font-size:clamp(34px,6vw,68px);line-height:1.15;letter-spacing:.01em;margin-top:14px;position:relative;z-index:1}
+.page-hero h1 b{font-weight:700}
+.page-hero .lead{color:var(--sub);font-size:clamp(15px,1.6vw,17px);line-height:1.9;max-width:540px;margin-top:26px;position:relative;z-index:1}
+.page-hero .ph-rule{height:1px;background:var(--line);margin-top:56px}
+
+/* ── 罫線見出し（セクション小見出し） ── */
+.rule-head{display:flex;align-items:baseline;gap:20px;border-top:1px solid var(--ink);padding-top:20px;margin-bottom:40px}
+.rule-head .rh-no{font-family:"Manrope";font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.1em}
+.rule-head .rh-title{font-weight:700;font-size:clamp(20px,2.6vw,28px);line-height:1.3}
+.rule-head .rh-en{margin-left:auto;font-family:"Manrope";font-size:12px;letter-spacing:.2em;color:var(--sub);align-self:center}
+
+/* ── ボタン拡張 ── */
+.btn-arrow{display:inline-flex;align-items:center;gap:10px}
+.btn-arrow .ic{transition:transform .25s}
+.btn-arrow:hover .ic{transform:translateX(4px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;font-family:"Manrope";font-weight:600;font-size:14px;color:var(--accent);padding:6px 0;border-bottom:1.5px solid transparent;transition:.25s}
+.btn-ghost:hover{border-bottom-color:var(--accent)}
+.btn-ghost .ic{transition:transform .25s}
+.btn-ghost:hover .ic{transform:translateX(4px)}
+
+/* ── 信頼帯（about/contact共通） ── */
+.trust-band{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.trust-band .tb{padding:28px 24px;border-right:1px solid var(--line)}
+.trust-band .tb:last-child{border-right:none}
+.trust-band .tb .ic{color:var(--accent);margin-bottom:12px}
+.trust-band .tb .k{font-family:"Manrope";font-size:12px;letter-spacing:.16em;color:var(--sub);margin-bottom:6px}
+.trust-band .tb .v{font-weight:700;font-size:16px;line-height:1.5}
+
+/* ── feature-list（横並び罫線リスト：採用の働く環境等） ── */
+.feature-list{border-top:1px solid var(--line)}
+.feature-row{display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start;padding:28px 0;border-bottom:1px solid var(--line)}
+.feature-row .fr-ic{width:48px;height:48px;border:1px solid var(--line2);border-radius:50%;display:grid;place-items:center;color:var(--accent);transition:border-color .25s}
+.feature-row:hover .fr-ic{border-color:var(--accent)}
+.feature-row .fr-ic .ic{width:22px;height:22px}
+.feature-row h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.feature-row p{color:var(--sub);font-size:14.5px;line-height:1.85}
+
+/* ── services インデックス ── */
+.serv-index{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid var(--ink)}
+.serv-index a{display:grid;grid-template-columns:36px 30px 1fr 20px;align-items:center;gap:14px;padding:22px 4px;border-bottom:1px solid var(--line);transition:padding .25s,color .25s}
+.serv-index a:hover{padding-left:12px;color:var(--accent)}
+.serv-index a:hover .si-arrow{transform:translateX(4px)}
+.serv-index .si-ic{color:var(--accent)}
+.serv-index .si-no{font-family:"Manrope";font-weight:700;font-size:13px;color:var(--accent)}
+.serv-index .si-name{font-weight:700;font-size:16px}
+.serv-index .si-arrow{transition:transform .25s;color:var(--line2)}
+
+/* ── service detail：番号行＋画像slow zoom ── */
+.serv-text .no-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.serv-text .no-row .ic{color:var(--accent)}
+.serv-detail .serv-img{overflow:hidden}
+.serv-detail .serv-img>span{display:block;width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.22,.7,.2,1)}
+@media(hover:hover){.serv-detail:hover .serv-img>span{transform:scale(1.04)}}
+
+/* ── 採用：応募ステップ ── */
+.rec-steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:16px}
+.rec-steps .st{padding:30px 26px;border-right:1px solid var(--line)}
+.rec-steps .st:last-child{border-right:none}
+.rec-steps .st .sn{font-family:"Manrope";font-weight:700;color:var(--accent);font-size:13px;margin-bottom:14px}
+.rec-steps .st .ic{color:var(--accent);margin-bottom:12px}
+.rec-steps .st h5{font-size:16px;font-weight:700;margin-bottom:6px}
+.rec-steps .st p{font-size:13.5px;color:var(--sub);line-height:1.8}
+
+/* ── 採用：メッセージ非対称 ── */
+.rec-message{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:start}
+.rec-message .rm-head{font-weight:300;font-size:clamp(24px,4vw,38px);line-height:1.45}
+.rec-message .rm-head b{font-weight:700}
+.rec-message .rm-head .ac{color:var(--accent)}
+.rec-message .rm-body{color:var(--sub);font-size:15px;line-height:2;margin-top:22px}
+.rec-message .rm-side{border-left:2px solid var(--accent);padding-left:24px}
+.rec-message .rm-side .rs-item{padding:12px 0;border-bottom:1px solid var(--line)}
+.rec-message .rm-side .rs-item:last-child{border-bottom:none}
+.rec-message .rm-side .rs-k{font-family:"Manrope";font-size:11px;letter-spacing:.14em;color:var(--accent);margin-bottom:4px}
+.rec-message .rm-side .rs-v{font-weight:700;font-size:15px}
+
+/* ── contact カード改修（左揃え＋SVGアイコン） ── */
+.contact-card{align-items:flex-start;text-align:left}
+.contact-card .cc-ic{width:52px;height:52px;border:1px solid var(--line2);border-radius:50%;display:grid;place-items:center;color:var(--accent);margin-bottom:18px;transition:border-color .25s}
+.contact-card:hover .cc-ic{border-color:var(--accent)}
+.contact-card .cc-ic .ic{width:24px;height:24px}
+.contact-card .cc-chip{display:inline-block;font-family:"Manrope";font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:3px 10px;margin-top:14px}
+
+/* ── about：代表メッセージのラベル ── */
+.greeting-img{position:relative}
+.greeting-img .gi-label{position:absolute;left:16px;top:16px;font-family:"Manrope";font-size:11px;letter-spacing:.16em;color:var(--sub);background:var(--paper);padding:6px 12px;border-radius:4px;border:1px solid var(--line)}
+
+/* ── 汎用：左揃えセクション見出しの間隔調整 ── */
+.sec-tight{padding:72px 0}
+.sec-tight:first-of-type{padding-top:80px}
+
+/* ── responsive（下層刷新分） ── */
+@media(max-width:880px){
+  .page-hero{padding:104px 0 0}
+  .page-hero .idx{font-size:clamp(70px,24vw,120px);top:0;right:-2px}
+  .page-hero .crumb{margin-bottom:28px}
+  .page-hero h1{font-size:clamp(30px,9vw,44px)}
+  .page-hero .lead{font-size:14px;margin-top:20px}
+  .page-hero .ph-rule{margin-top:36px}
+
+  .rule-head{flex-wrap:wrap;gap:8px 14px;margin-bottom:28px}
+  .rule-head .rh-en{width:100%;margin:0;order:3}
+
+  .trust-band{grid-template-columns:1fr}
+  .trust-band .tb{border-right:none;border-bottom:1px solid var(--line);padding:22px 20px}
+  .trust-band .tb:last-child{border-bottom:none}
+
+  .feature-row{grid-template-columns:48px 1fr;gap:16px;padding:20px 0}
+  .feature-row .fr-ic{width:40px;height:40px}
+  .feature-row .fr-ic .ic{width:20px;height:20px}
+
+  .serv-index{grid-template-columns:1fr;gap:0}
+
+  .rec-steps{grid-template-columns:1fr}
+  .rec-steps .st{border-right:none;border-bottom:1px solid var(--line);padding:24px 22px}
+  .rec-steps .st:last-child{border-bottom:none}
+
+  .rec-message{grid-template-columns:1fr;gap:28px}
+  .rec-message .rm-side{border-left:none;border-top:2px solid var(--accent);padding-left:0;padding-top:20px}
+
+  .sec-tight{padding:48px 0}
+  .sec-tight:first-of-type{padding-top:52px}
+
+  .contact-card .cc-ic{width:46px;height:46px}
 }
