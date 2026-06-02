@@ -225,8 +225,8 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
   .about-grid{grid-template-columns:1fr}
   .about-lead{font-size:clamp(18px,4.5vw,26px)}
   .about-table>div{grid-template-columns:100px 1fr}
-  .about-table dt{font-size:13px;padding:14px 0}
-  .about-table dd{font-size:13px;padding:14px 0}
+  .about-table dt{font-size:14px;padding:14px 0}
+  .about-table dd{font-size:14px;padding:14px 0}
 
   .greeting-grid{grid-template-columns:1fr;gap:30px}
   .greeting-img{max-height:300px}
@@ -235,7 +235,7 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
   .rec-img{min-height:180px}
   .rec-body{padding:24px 20px}
   .rec-body h3{font-size:clamp(18px,4.5vw,24px)}
-  .rec-body .jl div{font-size:13px;padding:10px 0}
+  .rec-body .jl div{font-size:14px;padding:10px 0}
 
   .rec-full-table .row{grid-template-columns:1fr}
   .rec-full-table .row dt{padding:14px 20px 4px}
