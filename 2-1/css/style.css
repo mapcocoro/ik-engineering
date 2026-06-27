@@ -47,7 +47,7 @@ header.scrolled{background:rgba(247,248,246,.92);backdrop-filter:blur(12px);padd
 .btn-out{border:1.5px solid var(--line2);color:var(--ink);background:transparent}.btn-out:hover{border-color:var(--ink)}
 .btn-lg{padding:18px 40px;font-size:16px}
 .hero-img{position:relative;opacity:0;animation:fu 1.2s .5s forwards}
-.hero-img .frame{aspect-ratio:4/5;background:url("../images/hero.webp") center/cover;border-radius:4px}
+.hero-img .frame{aspect-ratio:4/5;background:#dde2dd;border-radius:4px;display:grid;place-items:center;font-size:20px;font-weight:700;color:var(--sub)}
 .hero-img .badge{position:absolute;left:-22px;bottom:30px;background:var(--paper);border:1px solid var(--line);padding:18px 22px;border-radius:6px;box-shadow:0 20px 40px rgba(20,30,40,.08)}
 .hero-img .badge .val{font-size:16px;font-weight:800;color:var(--accent);line-height:1}
 .hero-img .badge span{font-size:12px;color:var(--sub)}
