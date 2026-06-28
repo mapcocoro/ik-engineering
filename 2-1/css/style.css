@@ -220,7 +220,8 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
   section{padding:48px 0}
 
   .srow{grid-template-columns:40px 1fr;gap:14px;padding:18px 0}
-  .srow p,.srow .thumb{display:none}
+  .srow p{display:none}
+  .srow .thumb{grid-column:1/-1;width:100%;height:auto;aspect-ratio:16/10;justify-self:stretch}
 
   .serv-detail{grid-template-columns:1fr;gap:24px;padding:40px 0}
   .serv-detail:nth-child(even){direction:ltr}
