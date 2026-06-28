@@ -92,7 +92,7 @@ section{padding:120px 0}
 .serv-detail:last-child{border-bottom:none}
 .serv-detail:nth-child(even){direction:rtl}
 .serv-detail:nth-child(even)>*{direction:ltr}
-.serv-detail .serv-img{aspect-ratio:16/10;border-radius:6px;background-size:cover;background-position:center}
+.serv-detail .serv-img{aspect-ratio:16/10;border-radius:6px;background-size:cover;background-position:center;position:relative}
 .serv-detail .serv-text .no{font-family:"Manrope";font-weight:700;color:var(--accent);font-size:14px;margin-bottom:8px}
 .serv-detail .serv-text h3{font-size:24px;font-weight:700;margin-bottom:14px}
 .serv-detail .serv-text p{color:var(--sub);font-size:15px;line-height:1.9}
@@ -182,6 +182,9 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
 .foot-links{display:flex;gap:24px}
 .foot-links a{color:#8b96a1;transition:.2s}
 .foot-links a:hover{color:#fff}
+
+/* sp-only line break */
+@media(min-width:881px){br.sp{display:none}}
 
 /* ── responsive ── */
 @media(max-width:880px){
@@ -328,7 +331,7 @@ footer{background:var(--ink);color:#8b96a1;border-top:1px solid rgba(255,255,255
 .serv-text .no-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .serv-text .no-row .ic{color:var(--accent)}
 .serv-detail .serv-img{overflow:hidden}
-.serv-detail .serv-img>span{display:block;width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.22,.7,.2,1)}
+.serv-detail .serv-img>span{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s cubic-bezier(.22,.7,.2,1)}
 @media(hover:hover){.serv-detail:hover .serv-img>span{transform:scale(1.04)}}
 
 /* ── 採用：応募ステップ ── */
